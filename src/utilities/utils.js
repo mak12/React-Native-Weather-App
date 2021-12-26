@@ -5,6 +5,7 @@ export const PrintLog = (logs) => {
     }
 }
 
+// to format date in android devices, as toLocaleString wasnt working as expected
 export const jsCoreDateCreator = (dateString) => {
     // dateString *HAS* to be in this format "YYYY-MM-DD HH:MM:SS"  
     const dateParams = dateString.replace(/ UTC/, '').split(/[\s-:]/)

@@ -35,7 +35,7 @@ const Home = ({ navigation, route }) => {
             const day = dateTime.getDate();
             const time = dateTime.getHours();
             const month = dateTime.toLocaleString('default', { month: 'short' });
-            console.log("date time ", day, time, month)
+            PrintLog("date time ", day, time, month)
             // recreate objects of the array adding time anda day + month and 
             // keeping timestamp and the rest of the info
             const item = {
@@ -83,19 +83,16 @@ const Home = ({ navigation, route }) => {
                 // setWeatherData(data);
             } else {
                 PrintLog(response)
-                setWeatherData(null);
+                setHourData(null);
+                setWeekData(null);
                 setLoaded(true);
-
             }
 
         } catch (error) {
             setLoaded(true);
-
             PrintLog(error);
         }
     }
-
-
     if (!loaded) {
         return (
             <View style={[styles.container, {
@@ -104,10 +101,8 @@ const Home = ({ navigation, route }) => {
             }]}>
                 <ActivityIndicator color='gray' size={36} />
             </View>
-
         )
     }
-
 
     return (
         <SafeAreaView style={styles.container}>
